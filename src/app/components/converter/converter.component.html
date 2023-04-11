@@ -3,22 +3,25 @@
         <!--errorMsg-->
     </p>
 </div>
-<h3 class="text-center mt-3">Conversor de Moedas</h3>
+<h3 class="text-center mt-5">Conversor de Moedas</h3>
 
-<div class="container d-flex flex-row align-items-center">
-    <div class="col-sm-3 col-3 select">
-        <select class="form-select">
-      <option disabled selected hidden></option>
-      <option *ngFor=""></option>
+<div class="container d-flex flex-column align-items-center">
+    <div class="col-12 col-md-8 select">
+        <select class="form-select" [(ngModel)]="selectedOption">
+      <option disabled selected hidden>Selecione...</option>
+      <option *ngFor="let option of options" [value]="option">{{option}}</option>
     </select>
     </div>
 
 
-    <div class="col-sm-9 col-9 converter">
-        <label for="number">Valor do Câmbio</label>
-        <input type="number" class="form-control" name="number">
+    <div class="col-12 col-md-8 converter">
+        <label for="price">Valor do Câmbio</label>
+        <input type="number" class="form-control" name="price" [(ngModel)]="price" (keyup)="setResult()">
 
-        <label for="result">Resultado</label>
-        <input type="number" class="form-control" name="result">
+        <label for=" result ">Valor a ser convertido</label>
+        <input type="number " class="form-control " name="numberToBeConverted " [(ngModel)]="numberToBeConverted " (keyup)="setResult()">
+
+        <label for=" result ">Resultado</label>
+        <input type="number " class="form-control " name="result " readonly [(ngModel)]="result" (keyup)="setResult()">
     </div>
 </div>

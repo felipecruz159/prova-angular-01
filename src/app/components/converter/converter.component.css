@@ -1,3 +1,18 @@
 input {
     margin-bottom: 1rem;
 }
+
+label {
+    margin-top: 1rem;
+}
+
+select,
+option {
+    color: black !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* make the arrows of input type button disappear */
+    display: none;
+}

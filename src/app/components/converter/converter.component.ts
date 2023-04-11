@@ -1,33 +1,35 @@
 import { Component } from '@angular/core';
-import { Converter } from './Converter';
 
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.css']
 })
+
 export class ConverterComponent {
-  converter!: Converter;
-  options: any = [];
+  options: string[] = [
+    'Real para Dólar',
+    'Real para Euro',
+    'Dólar para Real',
+    'Dólar para Euro',
+    'Euro para Real',
+    'Euro para Dólar'
+  ];
+
   selectedOption: string = 'Selecione...';
+  price!: number;
   numberToBeConverted!: number;
   result!: number;
 
-
-  ngOnInit(): void {
-    this.converter = new Converter();
-    this.options = this.converter.setVariableItems();
-  }
-
-  onChangeSelect() {
-    this.converter.splitStringItems(this.selectedOption);
-    this.converter.setCalculation();
-    this.result = this.converter.result;
-  }
-
-  validateNumber(event: any) {
-    const newValue = event.target.value.replace(',', '.');
-    this.converter.setNumberToBeConverted(Number(newValue));
-    this.result = this.converter.result;
+  setResult() {
+    if ((this.price !== 0 && this.numberToBeConverted !== 0) && this.price > 0 && this.numberToBeConverted > 0 ){
+      this.result = this.numberToBeConverted * this.price;
+    }
+    else if (this.price !== 0 && this.price > 0){
+      this.result = this.price;
+    }
+    else if (this.numberToBeConverted !== 0 && this.numberToBeConverted > 0){
+      this.result = this.numberToBeConverted;
+    }
   }
 }
