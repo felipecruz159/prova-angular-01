@@ -3,17 +3,19 @@
         <!--errorMsg-->
     </p>
 </div>
-<div class="container">
-    <h3 class="text-center">Conversor de Moedas</h3>
-    <div class="col-sm-3 select">
-        <select class="form-select">
-    <option disabled selected hidden></option>
-    <option *ngFor=""></option>
-  </select>
+<h3 class="text-center mt-3">Conversor de Moedas</h3>
 
+<div class="container d-flex flex-row align-items-center">
+    <div class="col-sm-3 col-3 select">
+        <select class="form-select">
+      <option disabled selected hidden></option>
+      <option *ngFor=""></option>
+    </select>
     </div>
-    <div class="col-sm-9 converter">
-        <label for="number"></label>
+
+
+    <div class="col-sm-9 col-9 converter">
+        <label for="number">Valor do Câmbio</label>
         <input type="number" class="form-control" name="number">
 
         <label for="result">Resultado</label>
